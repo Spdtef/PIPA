@@ -1,0 +1,39 @@
+Hey! Here is everything you need to run Pipa (the Emotional Support AI Assistant) on your local machine.
+
+### STEP 1: Get the Code
+Open your terminal and clone the repository:
+git clone https://github.com/Spdtef/PIPA.git
+cd PIPA
+
+### STEP 2: Install Dependencies
+Create a virtual environment so you don't mess up your global Python packages:
+python -m venv venv
+
+Activate it:
+- Windows: .\venv\Scripts\activate
+- Mac/Linux: source venv/bin/activate
+
+Install the required packages:
+pip install -r requirements.txt
+
+(Note for Linux/Raspberry Pi users: You must run `sudo apt-get install portaudio19-dev python3-pyaudio` BEFORE running the pip command so your microphone works!)
+
+### STEP 3: Setup the API Keys
+Pipa needs a Google Gemini API key to think.
+1. Create a file named `.env` in the main PIPA folder.
+2. Inside that file, paste the following two lines:
+
+GEMINI_API_KEY=your_actual_gemini_api_key_here
+DATABASE_URL=postgresql://postgres:yourpassword@localhost:5432/postgres
+
+(Make sure you replace the API key with your own, and ensure your PostgreSQL database is actually running locally with the pgvector extension installed!)
+
+### STEP 4: Build the Database
+Run the setup script to instantly build all the tables and memory vectors:
+python init_db.py
+
+### STEP 5: Start Pipa
+Run the main pipeline:
+python run_assistant.py
+
+Start talking! She will automatically detect your voice, learn your name, and remember your habits.
