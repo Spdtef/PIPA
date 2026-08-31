@@ -1,0 +1,12 @@
+fastapi
+uvicorn[standard]
+sqlalchemy
+psycopg2-binary
+pgvector
+pyaudio
+sounddevice
+numpy
+python-dotenv
+google-genai
+webrtcvad
+pydantic-settings
